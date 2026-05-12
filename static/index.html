@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>动态分区分配模拟器</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <div class="page-shell">
+    <header class="hero">
+      <div>
+        <p class="eyebrow">Operating Systems Experiment</p>
+        <h1>动态分区分配模拟器</h1>
+        <p class="hero-copy">四种经典动态分区算法并行处理同一组进程事件，实时观察内存占用、回收、失败次数与碎片分布。</p>
+      </div>
+      <div class="hero-badge">
+        <span id="runStatus">待启动</span>
+        <strong>总内存 10MB</strong>
+      </div>
+    </header>
+
+    <section class="control-panel">
+      <div class="panel-title">
+        <h2>控制选项</h2>
+        <p>使用相同随机种子驱动四个算法，确保对比公平。</p>
+      </div>
+      <div class="control-row">
+        <label>
+          随机种子
+          <input id="seedInput" type="number" placeholder="留空则自动生成">
+        </label>
+        <label>
+          运行速度
+          <select id="speedSelect">
+            <option value="450">快速</option>
+            <option value="700" selected>标准</option>
+            <option value="1000">缓慢</option>
+          </select>
+        </label>
+        <button id="startButton" class="primary-button">开始模拟</button>
+        <button id="pauseButton" class="ghost-button" disabled>暂停</button>
+        <button id="resumeButton" class="ghost-button" disabled>继续</button>
+        <button id="stopButton" class="ghost-button" disabled>停止模拟</button>
+      </div>
+      <div class="session-bar">
+        <span>Session: <strong id="sessionId">未创建</strong></span>
+        <span>Tick: <strong id="tickValue">0</strong></span>
+        <span>Seed: <strong id="seedValue">-</strong></span>
+      </div>
+    </section>
+
+    <main>
+      <section id="algorithmGrid" class="algorithm-grid"></section>
+
+      <section class="insight-row">
+        <article class="bottom-panel">
+          <div class="panel-head">
+            <h2>当前进程队列</h2>
+            <p>展示本轮统一事件流中正在运行、等待回收的进程。</p>
+          </div>
+          <div id="processQueue" class="queue-list empty-state">尚未开始模拟。</div>
+        </article>
+
+        <article class="bottom-panel log-panel">
+          <div class="panel-head">
+            <h2>日志查看</h2>
+            <p>显示最近操作，并可下载对应 CSV 文件。</p>
+          </div>
+          <div id="logTabs" class="log-tabs"></div>
+          <div id="logBody" class="log-body empty-state">暂无日志。</div>
+        </article>
+      </section>
+    </main>
+  </div>
+
+  <script src="./app.js?v=20260512b"></script>
+</body>
+</html>

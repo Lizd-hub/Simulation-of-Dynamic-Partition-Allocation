@@ -1,0 +1,12 @@
+﻿timestamp,tick,algorithm,action,process_id,size_kb,result,detail,free_block_count,free_distribution_kb
+2026-05-12 19:25:03,0,first_fit,RESET,-,0,OK,初始化 10MB 空闲内存,1,10240
+2026-05-12 19:25:03,1,first_fit,ALLOCATE,P001,453,OK,分配成功，起始地址 0KB，预计运行 3 个时钟,1,9787
+2026-05-12 19:25:04,2,first_fit,ALLOCATE,P002,245,OK,分配成功，起始地址 453KB，预计运行 5 个时钟,1,9542
+2026-05-12 19:25:04,3,first_fit,ALLOCATE,P003,160,OK,分配成功，起始地址 698KB，预计运行 6 个时钟,1,9382
+2026-05-12 19:25:05,4,first_fit,RELEASE,P001,453,OK,回收 P001 占用的 453KB 内存,2,453|9382
+2026-05-12 19:25:05,4,first_fit,ALLOCATE,P004,401,OK,分配成功，起始地址 0KB，预计运行 6 个时钟,2,52|9382
+2026-05-12 19:25:07,7,first_fit,RELEASE,P002,245,OK,回收 P002 占用的 245KB 内存,2,297|9382
+2026-05-12 19:25:07,7,first_fit,ALLOCATE,P005,395,OK,分配成功，起始地址 858KB，预计运行 7 个时钟,2,297|8987
+2026-05-12 19:25:08,8,first_fit,ALLOCATE,P006,265,OK,分配成功，起始地址 401KB，预计运行 5 个时钟,2,32|8987
+2026-05-12 19:25:09,9,first_fit,RELEASE,P003,160,OK,回收 P003 占用的 160KB 内存,2,192|8987
+2026-05-12 19:25:09,9,first_fit,ALLOCATE,P007,617,OK,分配成功，起始地址 1253KB，预计运行 6 个时钟,2,192|8370
